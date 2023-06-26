@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3D AVR Page</title>
+    <style>
+        #container {
+            width: 500px;
+            height: 400px;
+            position: relative;
+            perspective: 1000px;
+            margin: 0 auto;
+        }
+        
+        #gallery {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+        
+        #gallery img {
+            width: 500px;
+            height: 400px;
+            position: absolute;
+        }
+        
+        #thumbnail-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .thumbnail {
+            display: inline-block;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="gallery">
+            <img src="image1.jpg" alt="Image 1">
+            <img src="image2.jpg" alt="Image 2">
+            <img src="image3.jpg" alt="Image 3">
+        </div>
+    </div>
+    <div id="thumbnail-container">
+        <div class="thumbnail" onclick="window.location.href='/avr1';">
+            <img src="thumbnail1.jpg" alt="Thumbnail 1">
+        </div>
+        <div class="thumbnail" onclick="window.location.href='/avr2';">
+            <img src="thumbnail2.jpg" alt="Thumbnail 2">
+        </div>
+        <div class="thumbnail" onclick="window.location.href='/avr3';">
+            <img src="thumbnail3.jpg" alt="Thumbnail 3">
+        </div>
+    </div>
+
+    <script>
+        var gallery = document.getElementById('gallery');
+        var images = gallery.getElementsByTagName('img');
+        var angle = 0;
+        var increment = 360 / images.length;
+
+        for (var i = 0; i < images.length; i++) {
+            images[i].style.transform = 'rotateY(' + angle + 'deg) translateZ(250px)';
+            angle += increment;
+        }
+
+        function stopRotation() {
+            gallery.style.animation = 'none';
+        }
+
+        function resumeRotation() {
+            gallery.style.animation = 'rotate 20s infinite linear';
+        }
+    </script>
+</body>
+</html>
