@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360&deg; NIELIT Gallery</title>
+    <meta name="description" content="360&deg;  Image Gallery - A-Frame">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
+    
+    <!-- Image link template to be reused. -->
+    <script id="link" type="text/html">
+      <a-entity class="link"
+        geometry="primitive: plane; height: 1; width: 1"
+        material="shader: flat; src: ${thumb}"
+        event-set__mouseenter="scale: 1.2 1.2 1"
+        event-set__mouseleave="scale: 1 1 1"
+        event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
+        proxy-event="event: click; to: #image-360; as: fade"
+        sound="on: click; src: #click-sound"></a-entity>
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+         <!-- 360 degree images link --> 
+        <img id="MAIN" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/PXL_20230626_124809767.PHOTOSPHERE~2.jpg?v=1687799341347">
+        <img id="RECEPTION" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/PXL_20230626_124442655.PHOTOSPHERE~2.jpg?v=1687799333436">
+        <img id="innerview" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/PXL_20230626_124312178.PHOTOSPHERE.jpg?v=1687799355977">
+        <img id="stairs" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/PXL_20230626_123848515.PHOTOSPHERE.jpg?v=1687799395901">
+        <img id="avrlab" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/lab1.jpg?v=1687781212677">
+        <img id="212lab" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/lab2.jpg?v=1687781206034">
+        <img id="boyshostel" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/PXL_20230626_131402904.PHOTOSPHERE~2.jpg?v=1687799401970">
+        <img id="playground" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/PXL_20230626_132723118.PHOTOSPHERE.jpg?v=1687799390151">
+        <!-- 360 degree images link end --> 
+        
+        <!-- outer poster link start -->    
+        <img id="MAIN-thumb" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/MAINVIEW.png?v=1687782535965">
+        <img id="RECEPTION-thumb" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/RECEPTION.png?v=1687801300499">
+        <img id="innerview-thumb" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/INNER%20VIEW.png?v=1687801310846">
+        <img id="stairs-thumb" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/STAIRS.png?v=1687801281254">
+        <img id="avrlab-thumb" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/AVRCOVER.png?v=1687781934260">
+        <img id="212lab-thumb" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/ELECTRONICSLAB.png?v=1687782148945">
+        <img id="boyshostel-thumb" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/HOSTEL.png?v=1687801290967">
+        <img id="playground-thumb" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/PLAYGROUND.png?v=1687801283202">
+        <!-- outer poster link end -->  
+        <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+
+      </a-assets>
+
+      <!-- 360-degree image. -->
+      <a-sky id="image-360" radius="10" src="#MAIN"
+             animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
+             animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
+
+      <!-- Image links. -->
+      <a-entity id="links" layout="type: line; margin: 1.5" position="0 -1 -4">
+        <a-entity template="src: #link" data-src="#MAIN" data-thumb="#MAIN-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#RECEPTION" data-thumb="#RECEPTION-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#innerview" data-thumb="#innerview-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#stairs" data-thumb="#stairs-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#avrlab" data-thumb="#avrlab-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#212lab" data-thumb="#212lab-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#boyshostel" data-thumb="#boyshostel-thumb"></a-entity>
+        <a-entity template="src: #link" data-src="#playground" data-thumb="#playground-thumb"></a-entity>
+      </a-entity>
+
+      <!-- Camera + cursor. -->
+      <a-entity camera look-controls>
+        <a-cursor
+          id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__mouseenter="_event: mouseenter; color: springgreen"
+          event-set__mouseleave="_event: mouseleave; color: black"
+          raycaster="objects: .link"></a-cursor>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
