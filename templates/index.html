@@ -2,8 +2,29 @@
 <html>
 <head>
     <title>3D AVR Page</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <style>
+        #container {
+            width: 500px;
+            height: 400px;
+            position: relative;
+            perspective: 1000px;
+            margin: 0 auto;
+        }
+        
+        #gallery {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+        
+        #gallery img {
+            width: 500px;
+            height: 400px;
+            position: absolute;
+        }
+        
         #thumbnail-container {
             text-align: center;
             margin-top: 20px;
@@ -18,39 +39,30 @@
 </head>
 <body>
     <div id="thumbnail-container">
-        <div class="thumbnail" onclick="loadARVRScene('/avr1');">
+        <div class="thumbnail" onclick="window.location.href='/avr1';">
             <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/VIEW1.png?v=1687807502708" alt="Thumbnail 1">
         </div>
-        <div class="thumbnail" onclick="loadARVRScene('/avr2');">
+        <div class="thumbnail" onclick="window.location.href='/avr2';">
             <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/VIEW%202.png?v=1687807507176" alt="Thumbnail 2">
         </div>
-        <div class="thumbnail" onclick="loadARVRScene('/avr3');">
+        <div class="thumbnail" onclick="window.location.href='/avr3';">
             <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/VIEW%203.png?v=1687807515161" alt="Thumbnail 3">
         </div>
     </div>
 
-    <a-scene embedded arjs>
-        <a-assets>
-            <img id="model" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/MAINVIEW.png?v=1687782535965" crossorigin="anonymous">
-        </a-assets>
-
-        <a-marker preset="hiro">
-            <a-image src="#model" width="2" height="2" position="0 0 0"></a-image>
-        </a-marker>
-
-        <a-entity camera></a-entity>
-    </a-scene>
-
     <script>
-        function loadARVRScene(url) {
-            var thumbnailContainer = document.getElementById('thumbnail-container');
-            thumbnailContainer.style.display = 'none';
+        var gallery = document.getElementById('gallery');
+        var image = document.getElementById('MAIN');
+        var angle = 0;
 
-            var scene = document.querySelector('a-scene');
-            var model = document.getElementById('model');
-            model.setAttribute('src', url);
+        image.style.transform = 'rotateY(' + angle + 'deg) translateZ(250px)';
 
-            scene.style.display = 'block';
+        function stopRotation() {
+            gallery.style.animation = 'none';
+        }
+
+        function resumeRotation() {
+            gallery.style.animation = 'rotate 20s infinite linear';
         }
     </script>
 </body>
