@@ -2,20 +2,15 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>360&deg; NIELIT Gallery</title>
-    <meta name="description" content="360&deg;  Image Gallery - A-Frame">
-    
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-    
-    <!-- A-Frame and A-Frame components -->
+    <title>360&deg; Image Gallery</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
     <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
     <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
     
-    <!-- Image link template to be reused -->
+    <!-- Image link template to be reused. -->
     <script id="link" type="text/html">
       <a-entity class="link"
         geometry="primitive: plane; height: 1; width: 1"
@@ -26,29 +21,10 @@
         proxy-event="event: click; to: #image-360; as: fade"
         sound="on: click; src: #click-sound"></a-entity>
     </script>
-    
-    <style>
-      /* Additional CSS styles for gallery layout */
-      #gallery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      
-      .link {
-        margin: 10px;
-      }
-    </style>
   </head>
-  
   <body>
-    <div class="container">
-      <div class="text-center">
-        <h1>360&deg; NIELIT Gallery</h1>
-      </div>
-      
-      <a-scene>
-        <a-assets>
+    <a-scene>
+      <a-assets>
           <!-- 360-degree images LINK START  -->
           
           <img id="boyshostel" crossorigin="anonymous" src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/PXL_20230626_131402904.PHOTOSPHERE~2.jpg?v=1687799401970">
@@ -75,72 +51,16 @@
           <a-entity template="src: #link" data-src="#playground" data-thumb="#playground-thumb"></a-entity>
         </a-entity>
       
-        <!-- Camera + cursor. -->
-        <a-entity camera look-controls>
-          <a-cursor
-            id="cursor"
-            animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
-            animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
-            event-set__mouseenter="_event: mouseenter; color: springgreen"
-            event-set__mouseleave="_event: mouseleave; color: black"
-            raycaster="objects: .link"></a-cursor>
-        </a-entity>
-      </a-scene>
-    </body>
-    <style>
-      body {
-        margin: 0;
-        overflow: hidden;
-        font-family: Helvetica, Arial, sans-serif;
-      }
-    
-      a-scene {
-        width: 100%;
-        height: 100vh;
-      }
-    
-      #links {
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-        z-index: 999;
-      }
-    
-      .link {
-        cursor: pointer;
-      }
-    
-      #cursor {
-        z-index: 999;
-      }
-    </style>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-template-component@3.2.1/dist/aframe-template-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-proxy-event-component@2.1.0/dist/aframe-proxy-event-component.min.js"></script>
-    <script>
-      AFRAME.registerComponent('cursor-listener', {
-        init: function () {
-          this.el.addEventListener('click', function (evt) {
-            var image = document.querySelector('#image-360');
-            image.emit('fade');
-            setTimeout(function() {
-              image.emit('fadeback');
-            }, 300);
-          });
-        }
-      });
-    </script>
-    <script>
-      function addAnimationToLinks() {
-        var links = document.getElementsByClassName('link');
-        for (var i = 0; i < links.length; i++) {
-          links[i].setAttribute('animation__click', 'property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150');
-          links[i].setAttribute('animation__fusing', 'property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500');
-        }
-      }
-      
-      window.onload = addAnimationToLinks;
-    </script>
+        < <!-- Camera + cursor. -->
+      <a-entity camera look-controls>
+        <a-cursor
+          id="cursor"
+          animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
+          animation__fusing="property: fusing; startEvents: fusing; from: 1 1 1; to: 0.1 0.1 0.1; dur: 1500"
+          event-set__mouseenter="_event: mouseenter; color: springgreen"
+          event-set__mouseleave="_event: mouseleave; color: black"
+          raycaster="objects: .link"></a-cursor>
+      </a-entity>
+    </a-scene>
+  </body>
 </html>
