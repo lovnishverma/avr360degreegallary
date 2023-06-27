@@ -4,15 +4,19 @@
     <title>NIELIT AVR Page</title>
     <style>
         body {
-            background-image: url("https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/newsletter-bg.jpg?v=1687858667873");
-            background-size: cover;
-            background-position: center;
+    background-image: url("https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/INDEX_BG.jpg?v=1687869875794");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Set the height to 100% of the viewport height */
         }
 
         #container {
             width: 100%;
             max-width: 500px;
-            height: 400px;
+            height: auto;
             margin: 0 auto;
             position: relative;
             perspective: 1000px;
@@ -20,8 +24,8 @@
 
         #gallery {
             width: 100%;
-            height: 100%;
-            position: absolute;
+            height: 300px;
+            position: relative;
             transform-style: preserve-3d;
             animation: rotate 20s infinite linear;
         }
@@ -29,7 +33,7 @@
         #gallery img {
             width: 100%;
             height: 100%;
-            position: absolute;
+            object-fit: cover;
         }
 
         #thumbnail-container {
@@ -45,7 +49,12 @@
 
         @media (max-width: 500px) {
             #container {
+                width: 90%;
                 height: auto;
+            }
+
+            #gallery {
+                height: 200px;
             }
         }
 
@@ -63,7 +72,6 @@
     <div id="container">
         <div id="gallery">
             <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/NIELIT-Preview-removebg-preview-removebg-preview-removebg-preview.png?v=1687859248809" alt="LOGO">
-    
         </div>
     </div>
 
