@@ -3,14 +3,21 @@
 <head>
     <title>NIELIT AVR Page</title>
     <style>
+        body {
+            background-image: url("https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/newsletter-bg.jpg?v=1687858667873");
+            background-size: cover;
+            background-position: center;
+        }
+
         #container {
-            width: 500px;
+            width: 100%;
+            max-width: 500px;
             height: 400px;
+            margin: 0 auto;
             position: relative;
             perspective: 1000px;
-            margin: 0 auto;
         }
-        
+
         #gallery {
             width: 100%;
             height: 100%;
@@ -18,26 +25,48 @@
             transform-style: preserve-3d;
             animation: rotate 20s infinite linear;
         }
-        
+
         #gallery img {
-            width: 500px;
-            height: 400px;
+            width: 100%;
+            height: 100%;
             position: absolute;
         }
-        
+
         #thumbnail-container {
             text-align: center;
             margin-top: 20px;
         }
-        
+
         .thumbnail {
             display: inline-block;
             margin: 0 10px;
             cursor: pointer;
         }
+
+        @media (max-width: 500px) {
+            #container {
+                height: auto;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
     </style>
 </head>
 <body>
+    <div id="container">
+        <div id="gallery">
+            <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/NIELIT-Preview-removebg-preview-removebg-preview-removebg-preview.png?v=1687859248809" alt="LOGO">
+    
+        </div>
+    </div>
+
     <div id="thumbnail-container">
         <div class="thumbnail" onclick="window.location.href='/avr1';">
             <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/VIEW1.png?v=1687807502708" alt="Thumbnail 1">
@@ -52,10 +81,6 @@
 
     <script>
         var gallery = document.getElementById('gallery');
-        var image = document.getElementById('MAIN');
-        var angle = 0;
-
-        image.style.transform = 'rotateY(' + angle + 'deg) translateZ(250px)';
 
         function stopRotation() {
             gallery.style.animation = 'none';
