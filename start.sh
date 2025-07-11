@@ -1,1 +1,0 @@
-python avr.py
