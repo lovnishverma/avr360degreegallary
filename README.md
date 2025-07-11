@@ -4,7 +4,7 @@ This project is a **360° Image Gallery** built with **A-Frame**, allowing users
 
 ## Live Demo
 
-[View the project live](https://nielitavr.glitch.me/)
+[View the project live](https://avr360degreegallary.onrender.com/)
 
 ![image](https://github.com/user-attachments/assets/a7825311-0596-44b0-8b4b-918b62b50ae7)
 
@@ -27,7 +27,7 @@ This project is a **360° Image Gallery** built with **A-Frame**, allowing users
 
 ## How to Use
 
-1. Open the [Live Demo](https://nielitavr.glitch.me/) link in a web browser.
+1. Open the [Live Demo](https://avr360degreegallary.onrender.com/) link in a web browser.
 2. Look around using your mouse or VR headset.
 3. Click on a thumbnail image to switch views.
 4. Enjoy an immersive 360-degree virtual tour.
