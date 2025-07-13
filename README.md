@@ -36,6 +36,7 @@ This project is a **360° Image Gallery** built with **A-Frame**, allowing users
 
 ```
 /
+|-- assets/  # all the assets like images
 |-- index.html  # Main project file
 |-- avr1.html   # Stores 360-degree images and thumbnails
 |-- scripts/    # Contains A-Frame scripts (optional)
