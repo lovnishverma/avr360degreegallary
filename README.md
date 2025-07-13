@@ -52,7 +52,7 @@ This project is a **360° Image Gallery** built with **A-Frame**, allowing users
 ## Credits
 
 - Built with [A-Frame](https://aframe.io/)
-- Hosted on [Glitch](https://glitch.com/)
+- Hosted on [render](https://render.com/)
 
 ## License
 
