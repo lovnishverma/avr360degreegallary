@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>NIELIT AVR Page</title>
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <style>
         body {
-    background-image: url("https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/INDEX_BG.jpg?v=1687869875794");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
-    height: 100vh; /* Set the height to 100% of the viewport height */
+            background-image: url("https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/INDEX_BG.jpg?v=1687869875794");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* Set the height to 100% of the viewport height */
         }
 
         #container {
@@ -62,28 +67,34 @@
             from {
                 transform: rotateY(0deg);
             }
+
             to {
                 transform: rotateY(360deg);
             }
         }
     </style>
 </head>
+
 <body>
     <div id="container">
         <div id="gallery">
-            <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/NIELIT-Preview-removebg-preview-removebg-preview-removebg-preview.png?v=1687859248809" alt="LOGO">
+            <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/NIELIT-Preview-removebg-preview-removebg-preview-removebg-preview.png?v=1687859248809"
+                alt="LOGO">
         </div>
     </div>
 
     <div id="thumbnail-container">
         <div class="thumbnail" onclick="window.location.href='/avr1';">
-            <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/thumb-1.png?v=1687869425174" alt="Thumbnail 1">
+            <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/thumb-1.png?v=1687869425174"
+                alt="Thumbnail 1">
         </div>
         <div class="thumbnail" onclick="window.location.href='/avr2';">
-            <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/thumb-2.png?v=1687869427321" alt="Thumbnail 2">
+            <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/thumb-2.png?v=1687869427321"
+                alt="Thumbnail 2">
         </div>
         <div class="thumbnail" onclick="window.location.href='/avr3';">
-            <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/thumb-3.png?v=1687869431026" alt="Thumbnail 3">
+            <img src="https://cdn.glitch.global/9643226b-b70f-4c02-8018-2513b74927a2/thumb-3.png?v=1687869431026"
+                alt="Thumbnail 3">
         </div>
     </div>
 
@@ -99,4 +110,5 @@
         }
     </script>
 </body>
+
 </html>
